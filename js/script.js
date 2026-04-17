@@ -1,10 +1,15 @@
-const btnBackToTop = document.getElementById("btnBackToTop");
-
-window.onscroll = function() {
-    // Si el usuario baja más de 300px, mostramos el botón
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        btnBackToTop.classList.add("show");
-    } else {
-        btnBackToTop.classList.remove("show");
-    }
-};
+$(document).ready(function(){
+    $(window).scroll(function(){
+        if($(window).scrollTop()>300){
+	    $('.my_bttn').fadeIn(250);
+	}
+	else{
+	    $('.my_bttn').fadeOut(250);
+	}
+    });
+    $('.my_bttn').click(function(){
+	$('html,body').animate(
+	    {scrollTop:0},400
+	);
+    });
+});

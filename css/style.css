@@ -116,3 +116,162 @@ body {
     }
 }
 
+/* ==========================================================================
+   NORMA DE BOTONES (Basado en Sistema de Diseño Figma)
+   Colores Principales:
+   - Primario (Principal): #8B8CFF (Claro) a #4D4EBA (Oscuro)
+   - Secundario (Principal): #424982 (Medio) a #252A56 (Oscuro)
+   - Terciario (Outline): #C0C1FF (Claro)
+   - Texto/Iconos: Se infiere #FFFFFF (Blanco) y Gris para Disabled.
+   ========================================================================== */
+
+/* 1. Base Común para Todos los Botones
+   ========================================================================== */
+   .btn-jrl {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500; /* Medium, según prototipo */
+    text-transform: capitalize; /* "Button" */
+    border-radius: 50px; /* Completamente redondeados */
+    border: 2px solid transparent; /* Base para outline */
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    text-decoration: none;
+    line-height: 1; /* Para centrado vertical perfecto */
+}
+
+/* Base de iconos dentro de botones */
+.btn-jrl i {
+    margin: 0 4px; /* Pequeño espacio para los chevrons */
+    font-size: 1.1em;
+}
+
+/* Estado Focus (Base Común - Contorno de Accesibilidad) */
+.btn-jrl:focus, .btn-jrl.focused {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(139, 140, 255, 0.4); /* Brillo del color primario claro */
+}
+
+/* 2. Variantes de Color (Jerarquía)
+   ========================================================================== */
+
+/* --- BOTÓN PRIMARIO --- */
+.btn-jrl-primary {
+    background-color: #8B8CFF; /* Color Default */
+    color: #FFFFFF;
+}
+/* Hover */
+.btn-jrl-primary:hover, .btn-jrl-primary.hover {
+    background-color: #4D4EBA; /* Color más oscuro */
+}
+/* Active / Click */
+.btn-jrl-primary:active, .btn-jrl-primary.active, .btn-jrl-primary.clicked {
+    background-color: #252A56; /* El más oscuro de la paleta */
+}
+/* Disabled */
+.btn-jrl-primary:disabled, .btn-jrl-primary.disabled {
+    background-color: #B2B2B2; /* Gris */
+    color: #FFFFFF;
+    pointer-events: none;
+}
+
+/* --- BOTÓN SECUNDARIO --- */
+.btn-jrl-secondary {
+    background-color: #424982; /* Color Default */
+    color: #FFFFFF;
+}
+/* Hover */
+.btn-jrl-secondary:hover, .btn-jrl-secondary.hover {
+    background-color: #252A56; /* Color más oscuro */
+}
+/* Active / Click */
+.btn-jrl-secondary:active, .btn-jrl-secondary.active, .btn-jrl-secondary.clicked {
+    background-color: #B2B2B2; /* Gris de disabled */
+}
+/* Disabled */
+.btn-jrl-secondary:disabled, .btn-jrl-secondary.disabled {
+    background-color: #E6E6E6; /* Gris muy claro */
+    color: #B2B2B2;
+    pointer-events: none;
+}
+
+/* --- BOTÓN TERCIARIO (Outline) --- */
+.btn-jrl-terciary {
+    background-color: transparent;
+    border-color: #C0C1FF; /* Borde claro */
+    color: #C0C1FF;
+}
+/* Hover */
+.btn-jrl-terciary:hover, .btn-jrl-terciary.hover {
+    background-color: rgba(192, 193, 255, 0.1); /* Fondo muy suave al hover */
+    color: #C0C1FF;
+}
+/* Active / Click */
+.btn-jrl-terciary:active, .btn-jrl-terciary.active, .btn-jrl-terciary.clicked {
+    background-color: rgba(192, 193, 255, 0.2);
+}
+/* Disabled */
+.btn-jrl-terciary:disabled, .btn-jrl-terciary.disabled {
+    border-color: #E6E6E6;
+    color: #E6E6E6;
+    pointer-events: none;
+}
+
+/* 3. Variantes de Tamaño Responsivas (Mutan automáticamente)
+   ========================================================================== */
+
+/* TAMAÑO S (Mobile - por defecto)
+   Medidas Figma: 84x25px
+   ========================================================================== */
+.btn-jrl-normed {
+    font-size: 11px; /* Proporción para S */
+    padding: 6px 12px; /* Controla el ancho y alto visualmente */
+    height: 25px; /* Altura forzada */
+    min-width: 84px; /* Ancho mínimo forzado */
+}
+
+/* TAMAÑO M (Tablet - a partir de 838px)
+   Medidas Figma: 90x30px
+   ========================================================================== */
+@media (min-width: 838px) {
+    .btn-jrl-normed {
+        font-size: 12px;
+        padding: 8px 16px;
+        height: 30px;
+        min-width: 90px;
+    }
+}
+
+/* TAMAÑO L (Desktop - a partir de 1440px)
+   Medidas Figma: 108x35px
+   ========================================================================== */
+@media (min-width: 1440px) {
+    .btn-jrl-normed {
+        font-size: 14px;
+        padding: 10px 20px;
+        height: 35px;
+        min-width: 108px;
+    }
+}
+
+.my_bttn{
+    height: 45px;
+    width: 45px;
+    background-color: #3D548B;
+    border: none;
+    color: white;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    display: none;
+}
+
+.my_bttn:hover{
+    transform: scale(1.05) 
+               translateY(-5px);
+}
