@@ -1,6 +1,6 @@
 :root {
     --primary-dark: #0C296E;
-    --bg-accent: #D1D9E9;
+    --bg-accent: #9EA9C5;
     --text-color: #1A1A1A;
 }
 
@@ -11,22 +11,26 @@ body {
 }
 
 /* --- NAV PILLS DESKTOP --- */
-.nav-pill-link {
-    color: white;
-    text-decoration: none;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
+@media (max-width: 863px) {
+    /* El contenedor que se abre y cierra */
+    .navbar-collapse {
+        position: absolute;
+        top: 100%; /* Aparece justo debajo de la barra de navegación */
+        left: 0;
+        right: 0;
+        background-color: rgba(8, 31, 66, 0.95); /* Un azul oscuro profundo con transparencia */
+        padding: 2rem;
+        text-align: center;
+        border-bottom: 2px solid #64ffda; /* Opcional: una línea de acento */
+        backdrop-filter: blur(10px); /* Efecto de desenfoque muy pro */
+    }
 
-.nav-pill-link:hover {
-    background: white;
-    color: var(--primary-dark);
+    .nav-pill-link {
+        display: block;
+        margin: 15px 0;
+        font-size: 1.2rem;
+    }
 }
-
 /* --- HERO --- */
 .hero {
     min-height: 100vh;
@@ -41,7 +45,7 @@ body {
 
 /* --- SECCIONES RECUADRADAS --- */
 .section-container {
-    background-color: #E2E8F3;
+    background-color: #C5D1ED;
     border-radius: 30px;
     padding: 60px 40px;
 }
@@ -275,3 +279,219 @@ body {
     transform: scale(1.05) 
                translateY(-5px);
 }
+
+.color-primario {
+    color: #1a237e; /* Ajusta al azul oscuro de tu paleta */
+}
+
+.border-primary-subtle {
+    border: 2px solid #d1d9ff !important; /* El tono lila/azul claro de tu borde */
+}
+
+/* En tu archivo style.css */
+.contacto-form {
+    max-width: 700px; /* Ajusta este valor según prefieras el ancho */
+    width: 100%;      /* Asegura que sea responsivo en móviles */
+}
+
+/* --- ESTADO MÓVIL (Por debajo de 864px) --- */
+@media (max-width: 863px) {
+    .navbar-toggler {
+        display: block !important; /* Muestra hamburguesa */
+    }
+
+    .nav-pill-link {
+        display: block;
+        width: 80%;            /* No ocupan todo el ancho para que se vean como botones */
+        margin: 10px auto;     /* Centra los botones y les da espacio vertical */
+        padding: 10px 20px;
+        text-align: center;
+        border: 1px solid #ffffff; /* El borde blanco de tus pills en desktop */
+        border-radius: 50px;   /* Forma de píldora */
+        color: #ffffff;        /* Texto blanco */
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    /* Efecto al presionar o pasar el mouse */
+    .nav-pill-link:hover, .nav-pill-link:active {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-color: #C5D1ED; /* Puedes usar tu color de acento aquí */
+    }
+
+    /* Contenedor del menú para que los botones floten bien */
+    .navbar-nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 20px 0;
+    }
+
+    .navbar-collapse.collapse:not(.show) {
+        display: none !important; /* Esconde el menú si no está clickeado */
+    }
+
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(11, 15, 48, 0.9); /* Fondo del menú desplegado */
+        padding: 20px;
+        z-index: 1000;
+    }
+    
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* --- ESTADO TABLET/DESKTOP (864px o más) --- */
+@media (min-width: 864px) {
+    .navbar-toggler {
+        display: none !important; /* ESCONDE HAMBURGUESA SIEMPRE */
+    }
+
+    .navbar-collapse {
+        display: flex !important; /* MUESTRA MENÚ SIEMPRE */
+        flex-basis: auto;
+        background-color: transparent !important;
+    }
+
+    .navbar-nav {
+        flex-direction: row !important; /* Alineación horizontal */
+        gap: 1rem;
+    }
+
+    /* Esto elimina cualquier rastro de la barra negra que viste */
+    .collapse:not(.show) {
+        display: flex !important;
+    }
+}
+
+/* Logo en Mobile (Base) */
+.logo-hero {
+    width: 44px;
+    height: 42px;
+    object-fit: contain; /* Esto evita que el logo se deforme si la imagen original tiene otra proporción */
+}
+
+/* Logo en Tablet (864px en adelante) */
+@media (min-width: 864px) {
+    .logo-hero {
+        width: 80px;
+        height: 60px;
+    }
+}
+
+/* Logo en Desktop (1440px en adelante) */
+@media (min-width: 1440px) {
+    .logo-hero {
+        width: 105px;
+        height: 85px;
+    }
+}
+
+@media (min-width: 864px) {
+    /* ... lo que ya tenías ... */
+
+    .navbar-collapse {
+        flex-grow: 0; /* Evita que el contenedor del menú se expanda hacia la izquierda */
+    }
+}
+
+/* --- ESTADO MÓVIL (< 864px) --- */
+@media (max-width: 863px) {
+    .navbar-toggler {
+        display: block !important; /* Asegura que el botón exista */
+        padding: 0;
+        background: transparent;
+    }
+
+    /* Si el SVG es blanco y el fondo es claro, no se verá. 
+       Asegúrate de que la ruta de tu imagen sea correcta */
+    .navbar-toggler img {
+        display: block !important;
+        width: 30px;
+        height: auto;
+    }
+}
+
+.navbar-custom {
+    z-index: 1050; /* Esto lo pone por encima de cualquier otro elemento del hero */
+}
+
+/* Estilo base para los botones del menú (Desktop, Tablet y Mobile) */
+.nav-pill-link {
+    display: inline-block;
+    padding: 8px 20px;
+    border: 1px solid #ffffff; /* El borde blanco de tu diseño */
+    border-radius: 50px;       /* Forma de píldora */
+    color: #ffffff !important; /* Texto blanco */
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.nav-pill-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+/* --- AJUSTES ESPECÍFICOS POR DISPOSITIVO --- */
+
+/* En Móvil (Menú desplegable) */
+@media (max-width: 863px) {
+    .nav-pill-link {
+        display: block;    /* Uno sobre otro */
+        width: 80%;        /* No tan anchos */
+        margin: 10px auto; /* Centrados con espacio */
+        text-align: center;
+    }
+}
+
+/* En Tablet y Desktop (Barra horizontal) */
+@media (min-width: 864px) {
+    .navbar-nav {
+        flex-direction: row !important;
+        gap: 10px; /* Espacio entre botones */
+    }
+    
+    .nav-pill-link {
+        width: auto;
+    }
+}
+
+/* Color para el título principal */
+.hero-title {
+    color: #E3E9F6;
+    font-weight: 700; /* Asegura que se vea imponente */
+}
+
+/* Color para el subtítulo */
+.hero-subtitle {
+    color: #E3E9F6;
+    font-size: 1.1rem; /* Ajusta según tu diseño en Figma */
+}
+
+/* Clase de Bootstrap para forzar el blanco en tu nombre */
+.text-white {
+    color: #ffffff !important;
+}
+
+/* Espacio debajo del título principal */
+.hero-title {
+    margin-bottom: 3.5rem !important; /* Ajusta este número (40px, 50px, etc.) */
+    line-height: 1.3; /* De paso, esto ayuda a que el bloque de texto no se vea apretado */
+}
+
+/* Espacio arriba del subtítulo */
+.hero-subtitle {
+    margin-top: 3.5rem !important;
+    max-width: 800px; /* Tip extra: limitar el ancho del subtítulo lo hace más legible */
+    margin-left: auto;
+    margin-right: auto;
+}
+
