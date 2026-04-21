@@ -60,6 +60,25 @@ body {
 }
 .skill-box img { width: 40px; height: 40px; }
 
+/* --- TÍTULOS DE SECCIÓN NORMADOS (H2) --- */
+h2, .titulo-seccion-normado {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;        /* Semibold */
+    font-size: 39px !important; 
+    color: #071840 !important;
+    text-align: center;      /* Basado en tu imagen de servicios y proyectos */
+    margin-bottom: 3rem;     /* Espaciado inferior para que respire la sección */
+    text-transform: none;    /* Mantiene las mayúsculas/minúsculas originales */
+}
+
+/* Ajuste para que en móviles no se vea excesivamente grande */
+@media (max-width: 768px) {
+    h2, .titulo-seccion-normado {
+        font-size: 31px !important; /* Un escalón menos en la escala modular */
+        margin-bottom: 2rem;
+    }
+}
+
 /* --- TIPOGRAFÍA SEGÚN PROTOTIPO --- */
 .titulo-grande { font-size: 61px; font-weight: 600; line-height: 1.2; }
 .titulo-mediano { font-size: 49px; font-weight: 600; }
@@ -82,181 +101,113 @@ body {
     .subtitulo { font-size: 22px; }
 }
 
-/* --- CONTROL DE TIPOGRAFÍA RESPONSIVA HERO --- */
+/* --- CONTROL DE TIPOGRAFÍA RESPONSIVA HERO (CON JERARQUÍA DE COLOR) --- */
 
 /* MOBILE (Base - 390px) */
 .hero-title {
-    font-size: 25px; /* H5 */
+    font-size: 25px; 
     font-weight: 700;
     line-height: 1.2;
+    color: #E3E9F6 !important; /* Jerarquía 1 (Claro) */
 }
+
+.hero-title .text-white {
+    color: #FFFFFF !important; /* Nombre en blanco puro */
+}
+
 .hero-subtitle {
-    font-size: 19px; /* H6 */
-    font-weight: 500;
+    font-size: 19px; 
+    font-weight: 700; /* Ajustado a tu nueva norma de párrafos */
     line-height: 1.2;
+    color: #C5D1ED !important; /* Jerarquía 2 (Azul medio) */
+    margin-top: 2rem !important;
 }
 
 /* TABLET (838px) */
 @media (min-width: 838px) {
     .hero-title {
-        font-size: 39px; /* H3 */
+        font-size: 39px; 
         font-weight: 600;
     }
     .hero-subtitle {
-        font-size: 31px; /* H4 */
-        font-weight: 400;
+        font-size: 31px; 
+        font-weight: 600; /* Semibold según tu lógica de H */
+        margin-top: 3rem !important;
     }
 }
 
 /* DESKTOP (1440px) */
 @media (min-width: 1440px) {
     .hero-title {
-        font-size: 49px; /* H2 */
+        font-size: 49px; 
         font-weight: 600;
     }
     .hero-subtitle {
-        font-size: 39px; /* H3 */
+        font-size: 39px; /* H2 Figma */
         font-weight: 600;
+        margin-top: 3.5rem !important;
     }
 }
 
-/* ==========================================================================
-   NORMA DE BOTONES (Basado en Sistema de Diseño Figma)
-   Colores Principales:
-   - Primario (Principal): #8B8CFF (Claro) a #4D4EBA (Oscuro)
-   - Secundario (Principal): #424982 (Medio) a #252A56 (Oscuro)
-   - Terciario (Outline): #C0C1FF (Claro)
-   - Texto/Iconos: Se infiere #FFFFFF (Blanco) y Gris para Disabled.
-   ========================================================================== */
+/* --- SISTEMA DE BOTONES JRL (Basado en Figma) --- */
 
-/* 1. Base Común para Todos los Botones
-   ========================================================================== */
-   .btn-jrl {
+/* Base para todos los botones */
+.btn-jrl {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     font-family: 'Roboto', sans-serif;
-    font-weight: 500; /* Medium, según prototipo */
-    text-transform: capitalize; /* "Button" */
-    border-radius: 50px; /* Completamente redondeados */
-    border: 2px solid transparent; /* Base para outline */
+    font-weight: 500;
+    border-radius: 50px;
+    border: 2px solid transparent;
     transition: all 0.2s ease-in-out;
     cursor: pointer;
-    text-decoration: none;
-    line-height: 1; /* Para centrado vertical perfecto */
+    text-decoration: none !important;
+    gap: 8px;
 }
 
-/* Base de iconos dentro de botones */
-.btn-jrl i {
-    margin: 0 4px; /* Pequeño espacio para los chevrons */
-    font-size: 1.1em;
-}
-
-/* Estado Focus (Base Común - Contorno de Accesibilidad) */
-.btn-jrl:focus, .btn-jrl.focused {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(139, 140, 255, 0.4); /* Brillo del color primario claro */
-}
-
-/* 2. Variantes de Color (Jerarquía)
-   ========================================================================== */
-
-/* --- BOTÓN PRIMARIO --- */
-.btn-jrl-primary {
-    background-color: #8B8CFF; /* Color Default */
-    color: #FFFFFF;
-}
-/* Hover */
-.btn-jrl-primary:hover, .btn-jrl-primary.hover {
-    background-color: #4D4EBA; /* Color más oscuro */
-}
-/* Active / Click */
-.btn-jrl-primary:active, .btn-jrl-primary.active, .btn-jrl-primary.clicked {
-    background-color: #252A56; /* El más oscuro de la paleta */
-}
-/* Disabled */
-.btn-jrl-primary:disabled, .btn-jrl-primary.disabled {
-    background-color: #B2B2B2; /* Gris */
-    color: #FFFFFF;
-    pointer-events: none;
-}
-
-/* --- BOTÓN SECUNDARIO --- */
+/* BOTÓN SECUNDARIO (El que usaremos para Cotizar y Enviar) */
 .btn-jrl-secondary {
-    background-color: #424982; /* Color Default */
-    color: #FFFFFF;
-}
-/* Hover */
-.btn-jrl-secondary:hover, .btn-jrl-secondary.hover {
-    background-color: #252A56; /* Color más oscuro */
-}
-/* Active / Click */
-.btn-jrl-secondary:active, .btn-jrl-secondary.active, .btn-jrl-secondary.clicked {
-    background-color: #B2B2B2; /* Gris de disabled */
-}
-/* Disabled */
-.btn-jrl-secondary:disabled, .btn-jrl-secondary.disabled {
-    background-color: #E6E6E6; /* Gris muy claro */
-    color: #B2B2B2;
-    pointer-events: none;
+    background-color: #3D548B !important; /* Azul de tu prototipo */
+    color: #FFFFFF !important;
 }
 
-/* --- BOTÓN TERCIARIO (Outline) --- */
-.btn-jrl-terciary {
-    background-color: transparent;
-    border-color: #C0C1FF; /* Borde claro */
-    color: #C0C1FF;
-}
-/* Hover */
-.btn-jrl-terciary:hover, .btn-jrl-terciary.hover {
-    background-color: rgba(192, 193, 255, 0.1); /* Fondo muy suave al hover */
-    color: #C0C1FF;
-}
-/* Active / Click */
-.btn-jrl-terciary:active, .btn-jrl-terciary.active, .btn-jrl-terciary.clicked {
-    background-color: rgba(192, 193, 255, 0.2);
-}
-/* Disabled */
-.btn-jrl-terciary:disabled, .btn-jrl-terciary.disabled {
-    border-color: #E6E6E6;
-    color: #E6E6E6;
-    pointer-events: none;
+.btn-jrl-secondary:hover {
+    background-color: #071840 !important; /* El color Dark del prototipo */
+    transform: translateY(-2px);
 }
 
-/* 3. Variantes de Tamaño Responsivas (Mutan automáticamente)
-   ========================================================================== */
-
-/* TAMAÑO S (Mobile - por defecto)
-   Medidas Figma: 84x25px
-   ========================================================================== */
-.btn-jrl-normed {
-    font-size: 11px; /* Proporción para S */
-    padding: 6px 12px; /* Controla el ancho y alto visualmente */
-    height: 25px; /* Altura forzada */
-    min-width: 84px; /* Ancho mínimo forzado */
+.btn-jrl-secondary:active {
+    background-color: #1A1A1A !important; /* Color de click/active */
 }
 
-/* TAMAÑO M (Tablet - a partir de 838px)
-   Medidas Figma: 90x30px
-   ========================================================================== */
-@media (min-width: 838px) {
-    .btn-jrl-normed {
-        font-size: 12px;
-        padding: 8px 16px;
-        height: 30px;
-        min-width: 90px;
-    }
+/* BOTÓN TERCIARIO (Para los botones de la Navbar) */
+.btn-jrl-tertiary {
+    background: transparent !important;
+    border: 1px solid #FFFFFF !important;
+    color: #FFFFFF !important;
 }
 
-/* TAMAÑO L (Desktop - a partir de 1440px)
-   Medidas Figma: 108x35px
-   ========================================================================== */
-@media (min-width: 1440px) {
-    .btn-jrl-normed {
-        font-size: 14px;
-        padding: 10px 20px;
+.btn-jrl-tertiary:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* TAMAÑOS RESPONSIVOS */
+/* Tamaño L (Desktop - Enviar y Cotizar) */
+.btn-size-l {
+    min-width: 108px;
+    height: 45px; /* Un poco más alto para que respire como en Figma */
+    padding: 0 35px;
+    font-size: 16px;
+}
+
+/* Tamaño S (Para mobile o botones pequeños) */
+@media (max-width: 768px) {
+    .btn-size-l {
+        min-width: 84px;
         height: 35px;
-        min-width: 108px;
+        padding: 0 20px;
+        font-size: 14px;
     }
 }
 
@@ -495,3 +446,96 @@ body {
     margin-right: auto;
 }
 
+/* --- TARJETAS DE SERVICIOS MEJORADAS --- */
+.card-servicio {
+    background-color: #E2E8F6 !important;
+    border: 2px solid #3D548B !important;
+    border-radius: 24px !important; /* Un poco más redondeado para seguir tu estilo */
+    padding: 2.5rem 1.5rem !important; /* Más espacio arriba/abajo y a los lados */
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-servicio:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(61, 84, 139, 0.15); /* Sombra suave al color del borde */
+}
+
+.card-servicio .card-title {
+    color: #0C296E; /* Tu primary-dark */
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem !important;
+}
+
+.card-servicio .card-text {
+    font-size: 1rem;
+    line-height: 1.6; /* Esto hace que el párrafo sea mucho más fácil de leer */
+    color: #4A4A4A; /* Un gris oscuro pero no negro total para mejorar el contraste */
+}
+
+/* --- TAMAÑO M (Para Cards de Proyectos) --- */
+.btn-size-m {
+    min-width: 90px;
+    height: 38px;
+    padding: 0 24px;
+    font-size: 14px; /* Un poco más pequeño que el principal para no saturar la card */
+}
+
+/* --- NORMA DE PÁRRAFOS (Cuerpo de texto) --- */
+p, .p-regular, .card-text, .hero-subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px !important;
+    font-weight: 700 !important; /* El peso 'bold' que te gustó */
+    line-height: 1.6;            /* Espaciado entre líneas para mejor lectura */
+    color: #1A1A1A;              /* El color de texto que ya usabas */
+}
+
+/* Ajuste fino para las tarjetas de servicios si quieres que el texto no sea tan pesado */
+.card-servicio .card-text {
+    font-weight: 500 !important; /* Un "Medium" para que no compita tanto con el título de la tarjeta */
+    color: #4A4A4A;
+}
+
+/* --- AJUSTE DE COLOR SUBTÍTULO HERO --- */
+.hero-subtitle {
+    color: #E3E9F6 !important; /* El color que solicitaste */
+    font-size: 19px;           /* Manteniendo tu escala para mobile */
+    font-weight: 700;          /* Para que sea consistente con tu nueva norma de párrafos */
+    opacity: 1;                /* Aseguramos que no tenga transparencias */
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3); /* Tip extra: una sombra muy sutil ayuda a despegarlo del fondo */
+}
+
+/* Ajuste para Desktop (según tus media queries previas) */
+@media (min-width: 838px) {
+    .hero-subtitle {
+        font-size: 31px; 
+    }
+}
+
+@media (min-width: 1440px) {
+    .hero-subtitle {
+        font-size: 39px;
+    }
+}
+
+/* --- AJUSTE SUBTÍTULO HERO (H2 FIGMA) --- */
+.hero-subtitle {
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 39px !important;    /* Tamaño H2 de tu Figma */
+    font-weight: 600 !important;   /* Semibold */
+    color: #E3E9F6 !important;     /* Color solicitado */
+    line-height: 1.2 !important;
+    margin-top: 3.5rem !important;
+    max-width: 900px;              /* Para que el texto no se extienda demasiado a lo ancho */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Ajuste para que en móviles no rompa el diseño por el tamaño */
+@media (max-width: 768px) {
+    .hero-subtitle {
+        font-size: 24px !important; /* Ajuste responsivo para pantallas pequeñas */
+    }
+}
